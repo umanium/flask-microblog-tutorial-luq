@@ -1,0 +1,120 @@
+2015-10-23 21:54:20,029 INFO: microblog startup [in E:\Work\microblog\app\__init__.py:39]
+2015-10-23 22:00:00,417 ERROR: Exception on /edit [POST] [in E:\Work\microblog\flask\lib\site-packages\flask\app.py:1423]
+Traceback (most recent call last):
+  File "E:\Work\microblog\flask\lib\site-packages\flask\app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\Work\microblog\flask\lib\site-packages\flask\app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\Work\microblog\flask\lib\site-packages\flask\app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "E:\Work\microblog\flask\lib\site-packages\flask\app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\Work\microblog\flask\lib\site-packages\flask\app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\Work\microblog\flask\lib\site-packages\flask_login.py", line 786, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\Work\microblog\app\views.py", line 111, in edit
+    db.session.commit()
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\scoping.py", line 150, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\session.py", line 790, in commit
+    self.transaction.commit()
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\session.py", line 392, in commit
+    self._prepare_impl()
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\session.py", line 372, in _prepare_impl
+    self.session.flush()
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\session.py", line 2004, in flush
+    self._flush(objects)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\session.py", line 2122, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\util\langhelpers.py", line 60, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\session.py", line 2086, in _flush
+    flush_context.execute()
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 373, in execute
+    rec.execute(self)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 532, in execute
+    uow
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\persistence.py", line 170, in save_obj
+    mapper, table, update)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\persistence.py", line 692, in _emit_update_statements
+    execute(statement, multiparams)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\engine\base.py", line 914, in execute
+    return meth(self, multiparams, params)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\sql\elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\engine\base.py", line 1010, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\engine\base.py", line 1146, in _execute_context
+    context)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\engine\base.py", line 1341, in _handle_dbapi_exception
+    exc_info
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\util\compat.py", line 199, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\engine\base.py", line 1139, in _execute_context
+    context)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\engine\default.py", line 450, in do_execute
+    cursor.execute(statement, parameters)
+IntegrityError: (sqlite3.IntegrityError) column nickname is not unique [SQL: u'UPDATE user SET nickname=?, about_me=? WHERE user.id = ?'] [parameters: (u'duplicate', u'', 2)]
+2015-10-23 22:23:20,917 ERROR: Exception on /edit [POST] [in E:\Work\microblog\flask\lib\site-packages\flask\app.py:1423]
+Traceback (most recent call last):
+  File "E:\Work\microblog\flask\lib\site-packages\flask\app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\Work\microblog\flask\lib\site-packages\flask\app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\Work\microblog\flask\lib\site-packages\flask\app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "E:\Work\microblog\flask\lib\site-packages\flask\app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\Work\microblog\flask\lib\site-packages\flask\app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\Work\microblog\flask\lib\site-packages\flask_login.py", line 786, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\Work\microblog\app\views.py", line 111, in edit
+    db.session.add(g.user)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\scoping.py", line 150, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\session.py", line 790, in commit
+    self.transaction.commit()
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\session.py", line 392, in commit
+    self._prepare_impl()
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\session.py", line 372, in _prepare_impl
+    self.session.flush()
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\session.py", line 2004, in flush
+    self._flush(objects)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\session.py", line 2122, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\util\langhelpers.py", line 60, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\session.py", line 2086, in _flush
+    flush_context.execute()
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 373, in execute
+    rec.execute(self)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 532, in execute
+    uow
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\persistence.py", line 170, in save_obj
+    mapper, table, update)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\orm\persistence.py", line 692, in _emit_update_statements
+    execute(statement, multiparams)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\engine\base.py", line 914, in execute
+    return meth(self, multiparams, params)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\sql\elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\engine\base.py", line 1010, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\engine\base.py", line 1146, in _execute_context
+    context)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\engine\base.py", line 1341, in _handle_dbapi_exception
+    exc_info
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\util\compat.py", line 199, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\engine\base.py", line 1139, in _execute_context
+    context)
+  File "E:\Work\microblog\flask\lib\site-packages\sqlalchemy\engine\default.py", line 450, in do_execute
+    cursor.execute(statement, parameters)
+IntegrityError: (sqlite3.IntegrityError) column nickname is not unique [SQL: u'UPDATE user SET nickname=?, about_me=? WHERE user.id = ?'] [parameters: (u'duplicate', u'', 2)]
+2015-10-23 22:23:35,411 INFO: microblog startup [in E:\Work\microblog\app\__init__.py:39]
+2015-10-23 22:45:12,461 INFO: microblog startup [in E:\Work\microblog\app\__init__.py:39]
+2015-10-23 22:46:40,190 INFO: microblog startup [in E:\Work\microblog\app\__init__.py:39]
+2015-10-23 22:47:24,065 INFO: microblog startup [in E:\Work\microblog\app\__init__.py:39]
+2015-10-23 22:48:08,043 INFO: microblog startup [in E:\Work\microblog\app\__init__.py:39]
